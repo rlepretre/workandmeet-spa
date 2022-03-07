@@ -12,9 +12,9 @@ app.use(Quasar, {
   }, // import Quasar plugins and add here
 })
 app.use(VueGoogleMaps, {
-    load: {
-        key: 'YOUR_API_KEY_COMES_HERE',
-    },
+  load: {
+    key: 'AIzaSyB6Iosn-pQ48TS0zT2TOOW0SVY-D4q8ym0',
+  },
 })
 // Assumes you have a <div id="app"></div> in your index.html
 app.mount('#app')
