@@ -1,54 +1,24 @@
 <template>
-  <GMapMap
-      :center="center"
-      :zoom="7"
-      map-type-id="terrain"
-      style="width: 900px; height: 900px ;"
+  <GoogleMap
+  api-key="AIzaSyB6Iosn-pQ48TS0zT2TOOW0SVY-D4q8ym0"
+  style="width: 100%; height: 600px"
+  :center="center"
+  :zoom="3"
   >
-    <GMapCluster>
-      <GMapMarker
-          :key="index"
-          v-for="(m, index) in markers"
-          :position="m.position"
-          :clickable="true"
-          :draggable="true"
-          @click="center=m.position"
-      />
-    </GMapCluster>
-  </GMapMap>
+    <Marker :options="{ position: center }" />
+  </GoogleMap>
 </template>
+
 <script>
-export default {
-  data() {
-    return {
-      center: { lat: 51.093048, lng: 6.84212 },
-      markers: [
-        {
-          position: {
-            lat: 51.093048,
-            lng: 6.84212,
-          },
-        },
-        {
-          position: {
-            lat: 51.198429,
-            lng: 6.69529,
-          },
-        },
-        {
-          position: {
-            lat: 51.165218,
-            lng: 7.067116,
-          },
-        },
-        {
-          position: {
-            lat: 51.09256,
-            lng: 6.84074,
-          },
-        },
-      ],
-    };
+import { defineComponent } from 'vue'
+import { GoogleMap, Marker } from 'vue3-google-map'
+
+export default defineComponent({
+  components: { GoogleMap, Marker },
+  setup() {
+    const center = { lat: 40.689247, lng: -74.044502 }
+
+    return { center }
   },
-};
+})
 </script>

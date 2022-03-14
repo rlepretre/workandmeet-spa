@@ -57,16 +57,13 @@
                 </q-list>
                 </q-btn-dropdown>
         </div>
-        <div  class="container-middle">
-            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black" label="Fax" />
-            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black" label="Wifi" />
-            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black" label="Cafétériat" />
-            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black" label="Café" />
-            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black" label="Imprimante" />
+        <div  class="container-middle" >
+            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black" v-for="item in filterLabel" :key="item" :item="item" :label="item" @click="filter(itemClick=item)"/>
+
 
         </div>
         <div class="container-right">
-            <q-btn outline rounded color="white" text-color="black" label="Filtre" />
+            <q-btn outline rounded color="white" text-color="black" icon="tune" label="Filtre" />
         </div>
     </div>
     </div>
@@ -76,51 +73,82 @@
 .container {
     width: 100%;
     height: 40px;
-    display: flex;
-    flex-direction: row;
+     display: grid;
+    grid-template-columns: repeat(7, 1fr);
 }
 .container-left {
+    grid-column: span 1;
     padding-right: 10px;
     border-right: 1px solid rgba(10,10,10,.1) ;
+    display: flex;
+    flex-direction: row;
 }
 
 
 .container-middle {
-     padding-left: 10px;
+    grid-column: span 5;
+
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
 }
 .container-right {
-    padding-left: 650px;
+    grid-column: span 1;
+    display: flex;
+    flex-direction: row;
 }
 </style>
 <script>
 import { ref,computed } from 'vue'
+import EspaceListVue from './Espaces/EspaceList.vue'
+import { mapGetters, mapMutations, mapState } from 'vuex'
+
 
 export default {
+    
   setup () {
     const priceModel = ref(4)
-
+    const itemClick= ''
     return {
+
       menu: ref(false),
       onItemClick () {
-        // console.log('Clicked on an Item')
+        console.log('Clicked on an Item')
       },
-       priceModel,
-      priceLabel: computed(() => `$ ${priceModel.value}`),
-      arrayMarkerLabel: [
-          
-        { value: 1, label: '$1' },
-        { value: 2, label: '$2' },
-        { value: 3, label: '$3' },
-        { value: 4, label: '$4' },
-        { value: 5, label: '$5' },
-        { value: 6, label: '$6' },
-        { value: 7, label: '$7' },
-        { value: 8, label: '$8' },
-        { value: 9, label: '$9' },
-        { value: 10, label: '$10' }
+        itemClick,
+        priceModel,
+        priceLabel: computed(() => `$ ${priceModel.value}`),
+        arrayMarkerLabel: [
+            
+            { value: 1, label: '$1' },
+            { value: 2, label: '$2' },
+            { value: 3, label: '$3' },
+            { value: 4, label: '$4' },
+            { value: 5, label: '$5' },
+            { value: 6, label: '$6' },
+            { value: 7, label: '$7' },
+            { value: 8, label: '$8' },
+            { value: 9, label: '$9' },
+            { value: 10, label: '$10' }
 
-      ]
+      ],
+      filterLabel: [
+          "wifi",
+          "power",
+          "wc",
+          "parking",
+          "coffee"
+      ],
+      
+
     }
+   
+  } ,
+  methods: {
+    filter() {
+        this.$store.state.item = this.itemClick
+    },
   }
+ 
 }
 </script>

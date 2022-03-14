@@ -7,8 +7,8 @@ import EspaceList from './components/Espaces/EspaceList.vue';
 </script>
 
 <template>
-  <Header/>
-  <EspaceList/>
+  <Header />
+  <EspaceList />
 </template>
 
 <style>

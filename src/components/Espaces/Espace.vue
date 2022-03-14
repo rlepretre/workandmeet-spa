@@ -1,40 +1,8 @@
 <template>
-  <div class="q-pa-md items-start row q-gutter-md"  v-for="n in 5"
-                            :key="n">
+  <div class="q-pa-md items-start row q-gutter-md">
     <q-list >
         <q-item class="">
             <q-item-section top thumbnail class="q-ml-none">
-                <!--<q-carousel
-                    v-model="slide"
-                    transition-prev="slide-right"
-                    transition-next="slide-left"
-                    swipeable
-                    animated
-                    control-color="primary"
-                    navigation
-                    height="300px"
-               >
-                    <q-carousel-slide :name="1" class="column no-wrap">
-                        <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
-                            <q-img class="rounded-borders col-8 " src="https://cdn.quasar.dev/img/mountains.jpg" style="width:300px"/>
-                        </div>
-                    </q-carousel-slide>
-                    <q-carousel-slide :name="2" class="column no-wrap">
-                        <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
-                        <q-img class="rounded-borders  full-height" src="https://cdn.quasar.dev/img/parallax2.jpg" style="width:300px"/>
-                        </div>
-                    </q-carousel-slide>
-                    <q-carousel-slide :name="3" class="column no-wrap">
-                        <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
-                        <q-img class="rounded-borders col-8 full-height" src="https://cdn.quasar.dev/img/cat.jpg" style="width:300px"/>
-                        </div>
-                    </q-carousel-slide>
-                    <q-carousel-slide :name="4" class="column no-wrap">
-                        <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
-                        <q-img class="rounded-borders col-8 full-height" src="https://cdn.quasar.dev/img/material.png" style="width:300px"/>
-                        </div>
-                    </q-carousel-slide>
-                </q-carousel>-->
                 <q-carousel
                     animated
                     v-model="slide"
@@ -53,22 +21,21 @@
 
             <q-item-section class="item">
                 <div class="item-up">
-                    <q-item-label class="up-espace">Coworking</q-item-label>
-                    <q-item-label caption>Mont-saint-guibert</q-item-label>
+                    <q-item-label class="up-espace">{{n.place_type}}</q-item-label>
+                    <q-item-label caption>{{n.address}}</q-item-label>
                     <div class="up-hote">
-                        <q-item-label class="up-hote-name">Chez Xavier</q-item-label><q-item-label style="margin-top:15px;margin-left:10px;color: rgba(24, 22, 121, 1)">-300m</q-item-label>
+                        <q-item-label class="up-hote-name">{{n.name}}</q-item-label><q-item-label style="margin-top:10px;margin-left:10px;color: rgba(24, 22, 121, 1)">-300m</q-item-label>
                     </div>
                 </div>
                 <q-separator spaced inset />
                 <div class="item-middle1">
                     <q-item-label class="inclus">Inclus</q-item-label>
                     <div class="icons">
-                        <q-icon class="q-ml" name="wifi"/>
-                        <q-icon class="q-ml" name="wifi"/>
-                        <q-icon class="q-ml" name="wifi"/>
-                        <q-icon class="q-ml" name=""/>
-                        <q-icon class="q-ml" name="printer"/>
-
+                        <q-icon class="q-ml" v-if="n.wifi == 1" name="wifi"/>
+                        <q-icon class="q-ml" v-if="n.coffee == 1" name="coffee"/>
+                        <q-icon class="q-ml" v-if="n.wc == 1" name="wc"/>
+                        <q-icon class="q-ml" v-if="n.power == 1" name="power"/>
+                        <q-icon class="q-ml" v-if="n.parking == 1" name="parking"/>
 
                     </div>
                 </div>
@@ -78,7 +45,7 @@
                     <div class="tarifs">
                         
                         <q-item-label ></q-item-label>
-                        <q-item-label class="q-ml" caption>5€</q-item-label>
+                        <q-item-label class="q-ml" caption>{{n.price}}€</q-item-label>
                         <q-item-label class="q-ml" caption >40€</q-item-label>
                         <q-item-label class="q-ml" caption>80€</q-item-label>
                     </div>
@@ -102,25 +69,21 @@
         <q-separator spaced inset />
     </q-list>
   </div>
-  <q-pagination
-        v-model="current"
-        :max="5"
-        direction-links
-        flat
-        color="grey-4"
-        active-color="primary"
-      />
 </template>
 <script>
 import { ref } from 'vue'
 export default {
-  setup () {
-    return {
-        slide: ref(1),
-        current: ref(3),
-        lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }
-  }
+   props: {
+       n: {}
+   },
+    setup () {
+        return {
+            slide: ref(1),
+            current: ref(3),
+        }
+    },
+    
+   
 }
 </script>
 <style  scoped>
@@ -170,7 +133,7 @@ export default {
     flex-direction: row;
 }
 .up-hote-name{
- font-size: 30px;
+ font-size: 25px;
 }
 .q-ml{
     margin-right: 5px;
