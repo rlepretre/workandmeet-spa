@@ -13,9 +13,10 @@ app.use(Quasar, {
   }// import Quasar plugins and add here
 })
 app.use(VueGoogleMaps, {
-    load: {
-        key: 'AIzaSyB6Iosn-pQ48TS0zT2TOOW0SVY-D4q8ym0',
-    }
+
+  load: {
+    key: 'AIzaSyB6Iosn-pQ48TS0zT2TOOW0SVY-D4q8ym0',
+  },
 })
 app.use(store)
 
