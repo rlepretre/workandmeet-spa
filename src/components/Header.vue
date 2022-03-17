@@ -12,39 +12,26 @@
                 >
                     <div class="product-search">
                         <div class="search-element" >
-                            <q-select borderless v-model="model" :options="options" label="Où" style="width: 140px; margin-bottom:20px; margin-left: 20px"/>
+                            <q-select borderless v-model="model"  :options="options" use-input
+                                input-debounce="0" @filter="filterFn" label="Où" 
+                                style="width: 140px; margin-bottom:20px; margin-left: 20px"
+                                icon="place" @click.stop 
+                            />
                         </div>
                         <q-separator spaced vertical />
                         <div class="search-element">
-                            <q-input label="De quelle heure" borderless rounded v-model="time" mask="time" :rules="['time']" style="width: 140px;">
-                                <template v-slot:append>
-                                <q-icon name="access_time" class="cursor-pointer">
-                                    <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-                                    <q-time v-model="time">
-                                        <div class="row items-center justify-end">
-                                        <q-btn v-close-popup label="Close" color="primary" flat />
-                                        </div>
-                                    </q-time>
-                                    </q-popup-proxy>
-                                </q-icon>
-                                </template>
+                            <q-input label="De quelle heure" borderless style="width: 140px; margin-bottom: 15px"
+                                   type="time" 
+                                     v-model="timeStart"> 
+                                      
                             </q-input>
                         </div>
                         <q-separator spaced vertical />
 
                         <div class="search-element">
-                            <q-input label="A quelle heure" borderless  v-model="time" rounded mask="time" :rules="['time']" style="width: 140px;">
-                                <template v-slot:append>
-                                <q-icon name="access_time" class="cursor-pointer">
-                                    <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-                                    <q-time v-model="time">
-                                        <div class="row items-center justify-end">
-                                        <q-btn v-close-popup label="Close" color="primary" flat />
-                                        </div>
-                                    </q-time>
-                                    </q-popup-proxy>
-                                </q-icon>
-                                </template>
+                            <q-input borderless label="A quelle heure" style="width: 140px; margin-bottom: 15px"
+                                   type="time" 
+                                     v-model="timeFinish">
                             </q-input>
                         </div>
                         <q-separator spaced vertical />
@@ -115,24 +102,44 @@ import { fabApple } from '@quasar/extras/fontawesome-v5'
 import { ref } from 'vue'
 import Filter from './Filter.vue'
 
+let locality = []
    
 export default {
     setup() {
         const url = ref("src/assets/logo.png");
+        const options = ref(locality)
         return {
-            time: ref("10:56"),
+            locality,
+            timeStart: ref("10:56"),
+            timeFinish: ref("10:56"),
             date: ref("2019/02/01"),
             model: ref(null),
-            options: [
-                "Google",
-                "Facebook",
-                "Twitter",
-                "Apple",
-                "Oracle"
-            ],
+            options,
             url,
-            fabApple
-        };
+            fabApple,
+            filterFn (val, update) {
+                if (val === '') {
+                update(() => {
+                    options.value = locality
+                })
+                return
+                }
+
+                update(() => {
+                const needle = val.toLowerCase()
+                options.value = locality.filter(v => v.toLowerCase().indexOf(needle) > -1)
+                })
+            }
+        }
+        
+    },
+    data() {
+        
+        this.$store.state.everythings.forEach(espace => {
+            console.log(espace)
+            this.locality.push(espace.locality)
+        });
+        return this.locality.sort()
     },
     components: { Filter }
 }
