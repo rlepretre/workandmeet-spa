@@ -14,7 +14,7 @@
                             v-model="priceModel"
                             color="rgb(24, 22, 121)"
                             :inner-min="0"
-                            :inner-max="10"
+                            :inner-max="12"
                             markers
                             :marker-labels="arrayMarkerLabel"
                             label-always
@@ -22,10 +22,10 @@
                             switch-label-side
                             switch-marker-labels-side
                             :min="1"
-                            :max="10"
+                            :max="12"
                         />
                         
-                        <q-btn rounded style="background: rgb(24, 22, 121); color: white;">Valider</q-btn>
+                        <q-btn rounded style="background: rgb(24, 22, 121); color: white;" v-close-popup :priceModel="priceModel" @click="savePrice(itemClick= priceModel)">Valider</q-btn>
                     </q-banner>
                 </q-popup-proxy>
             </q-btn>
@@ -34,33 +34,19 @@
                 class="q-ml-lg"
                 outline rounded color="white" text-color="black" label="Espace"
                 >
-                <q-list>
-                    <q-item clickable v-close-popup @click="onItemClick">
+                <q-list v-for="espace in espacesType" :key="espace">
+                    <q-item clickable v-close-popup @click="onItemClick(itemClick= espace)">
                         <q-item-section>
-                            <q-item-label>Coworking</q-item-label>
+                            <q-item-label>{{espace}}</q-item-label>
                         </q-item-section>
                     </q-item>
                     <q-separator spaced inset />
-                    <q-item clickable v-close-popup @click="onItemClick">
-                        
-                        <q-item-section>
-                            <q-item-label>Salle de reunion</q-item-label>
-                        </q-item-section>
-                     
-                    </q-item>
-                    <q-separator spaced inset />
-                    <q-item clickable v-close-popup @click="onItemClick">
-                        <q-item-section>
-                            <q-item-label>Salle de conference</q-item-label>
-                        </q-item-section>
-                    </q-item>
+                    
                 </q-list>
                 </q-btn-dropdown>
         </div>
         <div  class="container-middle" >
-            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black" v-for="item in filterLabel" :key="item" :item="item" :label="item" @click="filter(itemClick=item)"/>
-
-
+            <q-btn class="q-ml-lg" outline rounded color="white" text-color="black"  v-model="val" v-for="item in $store.state.items" :key="item.value" :item="item"  :label="item.label" @click="filter(itemClick=item, item.count++ , item.checked= true)"/>
         </div>
         <div class="container-right">
             <q-btn outline rounded color="white" text-color="black" icon="tune" label="Filtre" />
@@ -100,9 +86,6 @@
 </style>
 <script>
 import { ref,computed } from 'vue'
-import EspaceListVue from './Espaces/EspaceList.vue'
-import { mapGetters, mapMutations, mapState } from 'vuex'
-
 
 export default {
     
@@ -110,11 +93,9 @@ export default {
     const priceModel = ref(4)
     const itemClick= ''
     return {
-
+        count: 0,
+    val: ref(false),
       menu: ref(false),
-      onItemClick () {
-        console.log('Clicked on an Item')
-      },
         itemClick,
         priceModel,
         priceLabel: computed(() => `$ ${priceModel.value}`),
@@ -132,22 +113,36 @@ export default {
             { value: 10, label: '$10' }
 
       ],
-      filterLabel: [
-          "wifi",
-          "power",
-          "wc",
-          "parking",
-          "coffee"
-      ],
       
+      espacesType: [
+          "Coworking",
+          "Autre",
+          "Bureau privé",
+          "Salle de réunion",
+          "Salle de séminaire",
+
+      ]
 
     }
    
   } ,
   methods: {
     filter() {
-        this.$store.state.item = this.itemClick
+        if(this.itemClick.count == 1) {
+            this.$store.state.item = this.itemClick
+        }
+        else if(this.itemClick.count == 2) {
+            this.itemClick.count = 0
+        }
     },
+    onItemClick () {
+        console.log(this.itemClick)
+        this.$store.state.item = this.itemClick
+      },
+    savePrice() {
+        console.log(this.itemClick)
+        this.$store.state.item = this.itemClick 
+    }
   }
  
 }

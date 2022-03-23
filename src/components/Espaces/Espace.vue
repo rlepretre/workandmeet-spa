@@ -11,8 +11,9 @@
                     infinite
                     height="250px"
                     width="300px"
+                    
                 >
-                    <q-carousel-slide class="rounded-borders col-9" :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg" style="width:300px"/>
+                    <q-carousel-slide class="rounded-borders col-9" :name="1" img-src="https://cdn.quasar.dev/img/parallax1.jpg" style="width:300px"/>
                     <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" style="width:300px"/>
                     <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" style="width:300px"/>
                     <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" style="width:300px"/>
@@ -45,9 +46,9 @@
                     <div class="tarifs">
                         
                         <q-item-label ></q-item-label>
-                        <q-item-label class="q-ml" caption>{{n.price}}€</q-item-label>
-                        <q-item-label class="q-ml" caption >40€</q-item-label>
-                        <q-item-label class="q-ml" caption>80€</q-item-label>
+                        <q-item-label class="q-ml" caption>{{n.price/100}}€</q-item-label>
+                        <q-item-label class="q-ml" caption >{{n.halfday_price/10}}€</q-item-label>
+                        <q-item-label class="q-ml" caption>{{n.fullday_price/10}}€</q-item-label>
                     </div>
                 </div>
                 <q-separator spaced inset />
@@ -68,14 +69,17 @@
         </q-item>
         <q-separator spaced inset />
     </q-list>
+     
   </div>
 </template>
 <script>
 import { ref } from 'vue'
 export default {
-   props: {
-       n: {}
-   },
+    props: {
+        n: {},
+        
+    },
+   
     setup () {
         return {
             slide: ref(1),
@@ -126,7 +130,7 @@ export default {
     flex-direction: row;    
 }
 .up-espace{
-    font-size: 50px;
+    font-size: 35px;
 }
 .up-hote{
     display: flex;

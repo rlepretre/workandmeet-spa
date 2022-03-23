@@ -1,24 +1,40 @@
 <template>
-  <GoogleMap
-  api-key="AIzaSyB6Iosn-pQ48TS0zT2TOOW0SVY-D4q8ym0"
-  style="width: 100%; height: 600px"
-  :center="center"
-  :zoom="3"
+<GMapMap
+      :center="center"
+      :zoom="10"
+      map-type-id="terrain"
+      style="width: 500px; height: 1000px"
   >
-    <Marker :options="{ position: center }" />
-  </GoogleMap>
+    <GMapCluster>
+      <GMapMarker
+        :key="n.id"
+        v-for="n in espaces"  
+        :position="{lat: n.lat, lng:n.lng}"
+        :clickable="true"
+        :draggable="true"
+        @click="center = {lat: n.lat, lng:n.lng}"
+          
+      />
+    </GMapCluster>
+  </GMapMap>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { GoogleMap, Marker } from 'vue3-google-map'
+import { mapGetters } from 'vuex';
 
-export default defineComponent({
-  components: { GoogleMap, Marker },
-  setup() {
-    const center = { lat: 40.689247, lng: -74.044502 }
-
-    return { center }
+export default {
+  props: {
+        espaces: [],
+        
+    },
+  name: 'App',
+  data() {
+    console.log(this.n)
+    return {
+        center: {lat: 50.387363, lng: 4.6858699999999995},
+      }
+    
   },
-})
+  
+}
 </script>
