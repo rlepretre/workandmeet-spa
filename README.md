@@ -6,5 +6,12 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 
+
+## j'ai utilisé quasar comme material 
+
+npm install quasar @quasar/extras
+npm install -D @quasar/vite-plugin sass@1.32.0
+
 j'ai utilisé quasar comme material
 https://github.com/rlepretre/workandmeet-spa/edit/Marceline/README.md
+
