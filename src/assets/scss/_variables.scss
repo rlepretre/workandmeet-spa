@@ -1,0 +1,27 @@
+$color-blue: #171D6E;
+$color-orange: #FA5F0C;
+
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// scss-docs-end utils-borders
+// Sizing utilities
+// scss-docs-start utils-sizing
+$utilities: (    
+    "width": (
+        responsive: true,
+        property: width,
+        class: w,
+        values: (
+            25: 25%,
+            50: 50%,
+            75: 75%,
+            100: 100%,
+            auto: auto
+        )
+    ),
+);
