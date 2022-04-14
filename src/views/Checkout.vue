@@ -21,26 +21,11 @@
             
             <div class="py-4"></div><!-- ./ spacer -->
 
-            <h4>Votre arrivée</h4>
-            
-            <div class="py-4"></div><!-- ./ spacer -->
-
             <div class="d-flex justify-content-between">
                 <div>
                     <h4>Dates:</h4>
                     <p>Mercredi 9 Mars 2022</p>
                 </div>
-                <a href="#">Modifier</a>
-            </div>
-
-            <div class="py-4"></div><!-- ./ spacer -->
-
-            <div class="d-flex justify-content-between">
-                <div>
-                    <h4>Occupants:</h4>
-                    <p>1 Travailleur</p>
-                </div>
-                <a href="#">Modifier</a>
             </div>
 
             <div class="py-4"></div><!-- ./ spacer -->
@@ -48,7 +33,7 @@
             <!-- Paiement Method -->
             <div class="d-flex justify-content-between align-items-center">
               <span>Payer avec</span> 
-              <img class="w-25" src="../assets/payments_methods.png" alt="">
+              <img class="w-25" src="../assets/images/payments_methods.png" alt="">
             </div>
             <div class="input-group-custom position-relative mb-5" style="padding:1px 0">
                 <div class="position-absolute p-4"><i class="fa-regular fa-credit-card fs-5"></i></div>
@@ -99,7 +84,7 @@
           <div class="p-5 border border-radius-12 w-100">
             <div class="d-flex">
               <div class="w-50 overflow-hidden rounded-3">
-                <img class="img-fluid" src="../assets/location-de-bureau.jpg" alt="">
+                <img class="img-fluid" src="../assets/images/location-de-bureau.jpg" alt="">
               </div>
               <div class="p-3 w-50">
                   <p>Coworking à Mont-Saint-Gubert</p>
@@ -159,41 +144,13 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue'
+import { ref } from 'vue'
 export default {
-  name: 'CheckoutView',
+  name: 'Checkout',
   components: {
-    Header
   },
-  data() {
-    return {
-      comments: [
-        {
-          id: 1,
-          author: 'Wile',
-          date: 'Février 2021',
-          content: 'Bon logement pas cher très bien situé à Bruxelle'
-        },
-        {
-          id: 2,
-          author: 'Charpentier C',
-          date: 'Septembre 2021',
-          content: 'Etant non-fumeur et appréciant le calme je me suis senti très alaise'
-        },
-        {
-          id: 3,
-          author: 'Bruno DuBois',
-          date: 'Décembre 2021',
-          content: 'Hôte très accueillant, bureau propre et confortable, je recommande!'
-        },
-        {
-          id: 4,
-          author: 'Geogette F',
-          date: 'Avril 2021',
-          content: 'Je suis resté un jour sur Bruxelle, le bureau de Jean Philippe est super situé (hypercentré).'
-        }
-      ]
-    }
+  setup() {
+    
   }
 }
 </script>

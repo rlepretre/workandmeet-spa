@@ -21,6 +21,15 @@ body {
     font-size: 1.4rem;
 }
 
+.text-blue-custom {
+    color: $color-blue;
+}
+
+.text-orange-custom {
+    color: $color-orange;
+}
+
+
 .bg-blue-custom {
     background-color: $color-blue;
 }
@@ -94,4 +103,11 @@ body {
     font-size: 1.6rem;
 }
 
+.row > * {
+    width: auto;
+}
+
+.q-rating__icon-container {
+    padding: 0 .2rem;
+}
 

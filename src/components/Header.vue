@@ -1,24 +1,14 @@
 <template>
-  <div>
-    <q-bar class="bg-white" style="height: 160px">
-        <div class="container">
-            <div class="header">
-                <div class="image">
-                    <!-- <q-img src="src/assets/logo.png"  /> -->
-                    <!-- <q-img src="src/assets/etoile.png"  /> -->
-                    <q-img src="src/assets/reservation1.jpeg"  />
-                    <q-img src="src/assets/reservation2.jpeg"  />
-                    <q-img src="src/assets/réservation3.jpeg"  />
-                </div>
-                <!-- <div class="text" >
-                    <h6>4,5.89 Commentaires Bruxelles, Belgique</h6>
-                </div> -->
-        
-            </div>
-    
-       </div>
-    </q-bar> 
-  </div>
+    <q-header elevated class="bg-white" height-hint="200">
+        <q-toolbar>
+            <q-avatar square>
+                <img :src="url" alt="logo">
+            </q-avatar>
+            <q-toolbar-title class="text-blue-custom">
+                Work And Meet
+            </q-toolbar-title>
+        </q-toolbar>
+    </q-header>
 </template>
 
 <script>
@@ -28,10 +18,8 @@ import { ref } from 'vue'
 export default {
     name: 'Header',
     setup() {
-        const url = ref("src/assets/logo.png");
+        const url = ref("src/assets/images/logo.png");
         return {
-            time: ref("10:56"),
-            date: ref("2019/02/01"),
             model: ref(null),
             options: [
                 "Google",

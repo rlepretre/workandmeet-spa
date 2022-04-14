@@ -8,7 +8,7 @@
               <i class="fas fa-star me-1 text-secondary-custom"></i>
               <span class="d-inline-block">4.9</span>
             </div>
-            <span class="d-inline-block ms-3">4 Commentaires</span>
+            <span class="d-inline-block ms-3">89 Commentaires</span>
             <span class="d-inline-block ms-3">Bruxelle, Belgique</span>
         </div>
 
@@ -34,24 +34,24 @@
         <div class="col-12 col-md-6 mb-md-0 mb-3">
           <!-- <a href=""><img class="img-fluid" src="" alt=""></a> -->
           <div class="w-100 box-thumbnail box-thumbnail-md border border-orange-custom">
-            <img class="img-fluid" src="../assets/location-de-bureau.jpg" alt="">
+            <img class="img-fluid" src="../assets/images/location-de-bureau.jpg" alt="">
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex">
           <div class="w-50 me-2">
             <div class="w-100 mb-3 box-thumbnail box-thumbnail-sm border border-orange-custom">
-              <img class="img-fluid" src="../assets/location-de-bureau.jpg" alt="">
+              <img class="img-fluid" src="../assets/images/location-de-bureau.jpg" alt="">
             </div>
             <div class="w-100 mt-3 box-thumbnail box-thumbnail-sm border border-orange-custom">
-              <img class="img-fluid" src="../assets/location-de-bureau.jpg" alt="">
+              <img class="img-fluid" src="../assets/images/location-de-bureau.jpg" alt="">
             </div>
           </div>
           <div class="w-50 ms-2">
             <div class="w-100 mb-3 box-thumbnail box-thumbnail-sm border border-orange-custom">
-              <img class="img-fluid" src="../assets/location-de-bureau.jpg" alt="">
+              <img class="img-fluid" src="../assets/images/location-de-bureau.jpg" alt="">
             </div>
             <div class="w-100 mt-3 box-thumbnail box-thumbnail-sm border border-orange-custom">
-              <img class="img-fluid" src="../assets/location-de-bureau.jpg" alt="">
+              <img class="img-fluid" src="../assets/images/location-de-bureau.jpg" alt="">
             </div>
           </div>
         </div>      
@@ -89,14 +89,7 @@
 
         <!-- Left Col -->
         <div class="col-12 col-md-6 mb-5 mb-md-0">
-          <!-- Catégories list -->
-          <div class="products-categories">
-            <a class="btn btn-primary-custom text-uppercase me-3 mb-2" href="#">Bureau</a>
-            <a class="btn btn-primary-custom text-uppercase me-3 mb-2" href="#">Salle de réunion</a>
-            <a class="btn btn-primary-custom text-uppercase me-3 mb-2" href="#">Conférence</a>
-          </div>
-          <!-- ./Catégories list -->
-          
+
           <!-- Product alerts -->
           <div class="product-alerts py-5">
             <div class="d-flex">
@@ -112,6 +105,7 @@
             </div>
           </div>
           <!-- ./Product alerts -->
+
           <hr>
 
           <!-- Product description -->
@@ -151,29 +145,22 @@
         <div class="col-12 col-md-6">
           <div class="p-5 border border-orange-custom border-radius-12 w-100">
             <div class="d-flex border border-radius-8">
-              <div class="p-3 w-50 border-end">
+              <div class="p-3 w-20 border-end">
+                <h6 class="text-uppercase fs-7 fw-bold">Date</h6>
+              </div>
+              <div class="p-3 w-40 border-end">
                 <h6 class="text-uppercase fs-7 fw-bold">Heure de début</h6>
-                <p>21/02/2022 à 9H</p>
+                <DateTimeEdit/>
               </div>
-              <div class="p-3 w-50">
+              <div class="p-3 w-40">
                 <h6 class="text-uppercase fs-7 fw-bold">Heure de fin</h6>
-                <p>21/02/2022 à 17H</p>
+                <DateTimeEdit/>
               </div>
             </div>
 
-            <div class="py-4 mb-5">
-              <h6 class="text-uppercase fs-7 fw-bold">Travailleurs</h6>
-              <form action="/">
-                <div class="input-group mb-4">
-                  <select class="form-select p-3">
-                    <option value="">--- Sélectionner ---</option>
-                    <option :value="i" v-for="i in 100" :key="i">{{ i }} {{ i <= 1 ? 'Travailleur' : 'Travailleurs' }}</option>
-                  </select>
-                </div>
-                <button type="button" class="btn w-100 btn-primary-custom p-3" @click="goToCheckout">Réserver</button>
-              </form>
+            <div class="py-5 mb-5">
+              <button type="button" class="btn w-100 btn-primary-custom p-3" @click="onBooking">Réserver</button>
             </div>
-
 
             <div class="pt-5">
               <div class="d-flex justify-content-between mb-4">
@@ -200,6 +187,8 @@
   </section>
   <!-- ./Product Details -->
 
+  <CommentEdit/>
+
   <section class="product-comments py-5">
     <div class="container">
       <div class="row">        
@@ -208,17 +197,20 @@
             <i class="fas fa-star me-1 text-secondary-custom"></i>
             <span class="d-inline-block">4.9</span>
           </div>
-          <span class="d-inline-block ms-3">4 Commentaires</span>
+          <span class="d-inline-block ms-3">89 Commentaires</span>
         </div>
         <div class="col-12 col-md-6 mb-5 d-flex" v-for="comment in comments" :key="comment.id">
           <div class="comment-thumbnail">
-            <img src="../assets/v3_0125956.jpg" alt="">
+            <img src="../assets/images/v3_0125956.jpg" alt="">
           </div>
           <div class="ms-3">
             <h6 class="m-0 fw-bold">{{ comment.author }}</h6>
             <p class="fs-7">{{ comment.date }}</p>
             <p class="m-0">{{ comment.content }}</p>
           </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <button type="button" class="btn bg-black text-white">Afficher plus</button>
         </div>
       </div>
     </div>
@@ -227,15 +219,22 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+import CommentEdit from "../components/CommentEdit.vue";
+import DateTimeEdit from "../components/DateTimeEdit.vue"
+
 export default {
-  name: 'BookingView',
+  name: 'Booking',
+  emits: ['on-booking'],
   components: {
-    // Header
+    CommentEdit,
+    DateTimeEdit
   },
-  data() {
-    return {
-      comments: [
+
+  setup(props, ctx) {
+    const router = useRouter();
+    const comments = ref([
         {
           id: 1,
           author: 'Wile',
@@ -260,14 +259,18 @@ export default {
           date: 'Avril 2021',
           content: 'Je suis resté un jour sur Bruxelle, le bureau de Jean Philippe est super situé (hypercentré).'
         }
-      ]
+    ])
+
+    function onBooking() {
+      // ctx.emit('on-booking');
+      router.push('checkout')
+    }
+
+    return {
+      comments,
+      onBooking
     }
   },
-  methods: {
-    goToCheckout() {
-      this.$emit('onBook');
-    }
-  }
 }
 </script>
 

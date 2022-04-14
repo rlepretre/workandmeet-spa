@@ -1,44 +1,37 @@
 <template>
-  <template v-if="isBooking">
-    <Booking @onBook="goToCheckout"/>
-  </template>
-  <template v-else-if="isCheckout">
-    <Checkout/>
-  </template>
-
+  <!-- <component :is="view" @onbook="goToCheckout"/> -->
+  <q-layout view="lHh Lpr lFf">
+    <Header/>
+    <div class="py-3"></div> <!-- ./spacer -->
+    <q-page-container>
+      <router-view></router-view>
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
-// import Header from './components/Header.vue';
-import Booking from './components/Booking.vue';
-import Checkout from './components/Checkout.vue';
+import Header from './components/Header.vue';
+import Booking from './views/Booking.vue';
+import Checkout from './views/Checkout.vue';
 
 export default {
   name: 'App',
   components: {
-    // Header,
+    Header,
     Booking,
     Checkout
   },
   data: function () {
     return {
-      page: 1,
-    }
-  },
-  computed: {
-    isBooking() {
-      return this.page === 1;
-    },
-    isCheckout() {
-      return this.page === 2;
+      view: 'Booking',
     }
   },
   methods: {
     goToBooking() {
-      this.page = 1;
+      this.view = 'Booking';
     },
     goToCheckout() {
-      this.page = 2;
+      this.view = 'Checkout';
     }
   }
 }
