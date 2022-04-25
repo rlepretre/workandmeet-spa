@@ -18,6 +18,7 @@ import EspaceList from "./Espaces/EspaceList.vue";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  overflow: hidden;
 }
 
 .empty {width: 126%;height: 1px;background: #00000057;margin-top: 61px;}
