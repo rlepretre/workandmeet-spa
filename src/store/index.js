@@ -7,7 +7,19 @@ const store = createStore({
     everythings: [
       
     ],
+    searchData: [
+      
+    ],
+    first: [
+      
+    ],
+    user: JSON.parse(localStorage.getItem('user')),
+    filterd: [],
+    placeType: "",
+    itemPrice: -1,
+    total: 0,
     item: '',
+    searchInput: {'input': '', 'start': '', 'end': '', 'date': '', 'diffTime': 0},
     place_type:'',
     price:'',
     espace:{},
@@ -24,7 +36,8 @@ const store = createStore({
     ],
     countselect: 0,
     price:'',
-    locality:[]
+    locality:[],
+    user: JSON.parse(localStorage.getItem('user')),
   },
   getters:{
       selectedFilters: function() {
@@ -114,7 +127,6 @@ const store = createStore({
   mutations: {
     SET_EVERYTHING (state, data) {
       state.first = data
-      state.last = data
       state.everythings = data;
     },
     
@@ -128,6 +140,7 @@ const store = createStore({
       })
     }
   },
+ 
 })
 
 export default store;
