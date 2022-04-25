@@ -89,14 +89,7 @@
 
         <!-- Left Col -->
         <div class="col-12 col-md-6 mb-5 mb-md-0">
-          <!-- Catégories list -->
-          <div class="products-categories">
-            <a class="btn btn-primary-custom text-uppercase me-3 mb-2" href="#">Bureau</a>
-            <a class="btn btn-primary-custom text-uppercase me-3 mb-2" href="#">Salle de réunion</a>
-            <a class="btn btn-primary-custom text-uppercase me-3 mb-2" href="#">Conférence</a>
-          </div>
-          <!-- ./Catégories list -->
-
+          
           <!-- Product alerts -->
           <div class="product-alerts py-5">
             <div class="d-flex">
@@ -153,9 +146,7 @@
         <div class="col-12 col-md-6">
           <div class="p-5 border border-orange-custom border-radius-12 w-100">
             <div class="d-flex border border-radius-8">
-              <div class="p-3 w-20 border-end">
-                <h6 class="text-uppercase fs-7 fw-bold">Date</h6>
-              </div>
+              
               <div class="p-3 w-40 border-end">
                 <h6 class="text-uppercase fs-7 fw-bold">Heure de début</h6>
                 <DateTimeEdit/>
@@ -234,7 +225,7 @@ import axios from "axios";
 import CommentEdit from "../Post/CommentEdit.vue";
 import DateTimeEdit from "../Post/DateTimeEdit.vue"
 import DateTimeEdit2 from "../Post/DateTimeEdit2.vue"
-//import Checkout from './Checkout.vue';
+import Checkout from './Checkout.vue';
 export default {
   name: 'BookingView',
   
@@ -242,7 +233,7 @@ export default {
     CommentEdit,
     DateTimeEdit,
     DateTimeEdit2,
-    //Checkout
+    Checkout
   },
   setup() {
     
