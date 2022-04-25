@@ -80,11 +80,20 @@
         </q-form>
         <q-separator spaced inset >ou</q-separator>
 
-         <q-card-section class="q-pa-md column q-gutter-sm">
+          <q-card-section class="q-pa-md column q-gutter-sm">
           <q-card-actions class="q-pa-md column q-gutter-sm">
-            <q-btn class="full-width" rounded color="white" text-color="black" icon="ion-logo-google" label="Inscrivez-vous avec Google"  />
-            <q-btn class="full-width" rounded color="white" text-color="black" label="Inscrivez-vous avec Facebook" type="submit" icon="facebook" />
-            <q-btn class="full-width" rounded color="white" text-color="black" label="Inscrivez-vous avec Linkedin" type="submit" icon="biLinkedin" />
+            <q-btn class="full-width" rounded color="white" text-color="black" >
+              <i class="fab fa-google fa-2x"></i> 
+              Connectez-vous avec Google
+            </q-btn>
+            <q-btn class="full-width" rounded color="white" text-color="black" type="submit">
+              <i class="fab fa-facebook-square fa-2x"></i>
+              Connectez-vous avec Facebook
+            </q-btn>
+            <q-btn class="full-width" rounded color="white" text-color="black" type="submit">
+              <i class="fab fa-linkedin-in fa-2x"></i> 
+              Connectez-vous avec Linkedin
+            </q-btn>
 
           </q-card-actions>
          </q-card-section>

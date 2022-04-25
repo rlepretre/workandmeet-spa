@@ -38,7 +38,7 @@
               </q-input>
 
             </q-card-section >
-            <q-card-actions class="text-primary">
+            <q-card-actions >
                 <q-btn rounded style="background: rgba(24, 22, 121, 1); color: white;" label="Connexion" class="full-width" type="submit" />
             </q-card-actions>
          </q-form>

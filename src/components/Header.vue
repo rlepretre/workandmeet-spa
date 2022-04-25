@@ -1,6 +1,6 @@
 <template>
 <div>
-    <q-bar class="bg-white" style="height: 160px">
+    <q-bar class="bg-white" style="height: 120px">
         <div class="container">
             <div class="headerContens">
                 <div class="header">
@@ -413,7 +413,7 @@ export default {
 }
 
 .search-content {
-    height: 70%;
+    height: 50%;
 }
 
 .button-search {
