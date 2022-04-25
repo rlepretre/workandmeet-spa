@@ -1,9 +1,15 @@
 <template>
     <q-header elevated class="bg-white" height-hint="200">
         <q-toolbar>
-            <q-avatar square>
-                <img :src="url" alt="logo">
-            </q-avatar>
+            
+                <router-link
+                    :to="{
+                    name: 'Home'}">
+                    <q-avatar square class="image">
+                    <img src="../assets/images/logo.png" alt="logo" />            
+                    </q-avatar>
+
+                </router-link>
             <q-toolbar-title class="text-blue-custom">
                 Work And Meet
             </q-toolbar-title>
@@ -18,7 +24,7 @@ import { ref } from 'vue'
 export default {
     name: 'Header',
     setup() {
-        const url = ref("src/assets/images/logo.png");
+        const url = ref("./logo.png");
         return {
             model: ref(null),
             options: [
@@ -59,7 +65,7 @@ margin: 0;
     border-bottom: 1px solid rgba(10,10,10,.1);
 } */
 .image {
-    width: 200px;
+    width: 100px;
     /* grid-column: span 2; */
     grid-row: span 5;
     line-height: 40px;
