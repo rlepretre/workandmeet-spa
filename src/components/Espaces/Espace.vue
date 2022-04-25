@@ -168,6 +168,9 @@ export default {
   font-size: 25px;
 }
 .q-ml {
-  margin-right: 5px;
+  margin-left: 20px;
+}
+.active {
+  color: red !important;
 }
 </style>
