@@ -1,21 +1,19 @@
 <template>
-    <div class="q-pa-md q-gutter-sm">
-        <q-header elevated class="bg-white" >
-            <q-toolbar >
-                <router-link
-                    :to="{
-                    name: 'Home'}">
-                    <q-avatar square class="image">
-                        <img src="../assets/images/logo.png" alt="logo" />            
-                    </q-avatar>
-                </router-link>
-                <q-toolbar-title class="text-blue-custom">
-                    Work And Meet
-                </q-toolbar-title>
-                <Menu/>
-            </q-toolbar>
-        </q-header>
-    </div>
+    <q-header elevated class="bg-white" height-hint="200">
+        <q-toolbar>
+            <router-link
+                :to="{
+                name: 'Home'}">
+                <q-avatar square class="image">
+                    <img src="../assets/images/logo.png" alt="logo" />            
+                </q-avatar>
+            </router-link>
+            <q-toolbar-title class="text-blue-custom">
+                Work And Meet
+            </q-toolbar-title>
+            <Menu/>
+        </q-toolbar>
+    </q-header>
 </template>
 
 <script>
