@@ -1,5 +1,4 @@
 <template>
-  <router-link to="/">GO BACK TO HOME</router-link>
   <q-layout view="lHh Lpr lFf">
     <Header/>
     <div class="py-3"></div> <!-- ./spacer -->

@@ -1,28 +1,29 @@
 <template>
-    <q-header elevated class="bg-white" height-hint="200">
-        <q-toolbar>
-            
+    <div class="q-pa-md q-gutter-sm">
+        <q-header elevated class="bg-white" >
+            <q-toolbar >
                 <router-link
                     :to="{
                     name: 'Home'}">
                     <q-avatar square class="image">
-                    <img src="../assets/images/logo.png" alt="logo" />            
+                        <img src="../assets/images/logo.png" alt="logo" />            
                     </q-avatar>
-
                 </router-link>
-            <q-toolbar-title class="text-blue-custom">
-                Work And Meet
-            </q-toolbar-title>
-        </q-toolbar>
-    </q-header>
+                <q-toolbar-title class="text-blue-custom">
+                    Work And Meet
+                </q-toolbar-title>
+                <Menu/>
+            </q-toolbar>
+        </q-header>
+    </div>
 </template>
 
 <script>
 import { fabApple } from '@quasar/extras/fontawesome-v5'
 import { ref } from 'vue'
-   
+import Menu from '../Menu.vue';   
 export default {
-    name: 'Header',
+    name: "Header",
     setup() {
         const url = ref("./logo.png");
         return {
@@ -38,7 +39,8 @@ export default {
             fabApple
         };
     },
-    // components: { Filter }
+    components: { 
+        Menu }
 }
 </script>
 <style scoped>
@@ -70,6 +72,22 @@ margin: 0;
     grid-row: span 5;
     line-height: 40px;
     display: flex;
+}
+.menu-connexion {
+    height: 30px;
+    width: 120px;
+    border-radius: 60px;
+    border: 1px solid;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    align-items: center;
 }
 /* .product-search {
     width: 730px;

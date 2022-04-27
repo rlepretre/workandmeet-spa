@@ -11,44 +11,7 @@
                         <div class="toggle">
                             <q-btn style="background: rgba(24, 22, 121, 1); color: white" round icon="search" />
                         </div>
-                        <div class="button-hote">
-                            <q-btn rounded style="
-                                background: rgba(24, 22, 121, 1);
-                                color: white;
-                                width: 120px;
-                                height: 40px;
-                            " label="Devenez hôte" />
-                        </div>
-                        <div>
-                            <q-btn class="menu-connexion">
-                                <q-icon name="menu" size="1.7rem" />
-                                <q-icon name="account_circle" size="1.7rem" />
-                                <q-menu v-if="$store.state.user == null">
-                                    <q-list dense style="min-width: 100px">
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section @click="openLogin">Connexion</q-item-section>
-                                        </q-item>
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section @click="openSignup">Inscription</q-item-section>
-                                        </q-item>
-                                    </q-list>
-                                </q-menu>
-                                <q-menu v-if="$store.state.user != null">
-                                    <q-list dense style="min-width: 100px">
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section>Mon Compte</q-item-section>
-                                        </q-item>
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section>Mes réservations</q-item-section>
-                                        </q-item>
-                                        <q-separator />
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section @click="logout">Deconnexion</q-item-section>
-                                        </q-item>
-                                    </q-list>
-                                </q-menu>
-                            </q-btn>
-                        </div>
+                        <Menu/>
                     </div>
                 </div>
                 <div class="toggle">
@@ -135,8 +98,7 @@
             </div>
         </div>
     </q-bar>
-    <Login :interception="interception" @clicked="onClickChild" />
-    <Signup :inscription="inscription" @clickedInsc="onClickSignup" />
+  
 </div>
 <div>
 
@@ -154,6 +116,7 @@ import {
 import Filter from "./Filter.vue";
 import Login from "./Auth/Login.vue";
 import Signup from "./Auth/Signup.vue";
+import Menu from './Menu.vue';
 
 let locality = [];
 
@@ -359,10 +322,11 @@ export default {
 
     },
     components: {
-        Filter,
-        Login,
-        Signup
-    },
+    Filter,
+    Login,
+    Signup,
+    Menu
+},
 };
 </script>
 
