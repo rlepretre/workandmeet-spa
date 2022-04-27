@@ -22,12 +22,12 @@
            
         >
        
-          <q-card-section class="row q-pt-none" style="background-color: red">
+          <q-card-section class="row q-pt-none">
             <q-input rounded outlined v-model="name" hint="Nom" style="width:350px"
 > 
             </q-input>
               
-            <q-input rounded outlined v-model="firstname" hint="Prénom" style="width:350px; background-color: blue"
+            <q-input rounded outlined v-model="firstname" hint="Prénom" 
 >
             </q-input>
           </q-card-section>
