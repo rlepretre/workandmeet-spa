@@ -38,9 +38,11 @@
               </q-input>
 
             </q-card-section >
-            <q-card-actions >
+            <q-card-section class="q-pa-md q-gutter-sm">
+            <q-card-actions  class="q-pa-md q-gutter-sm">
                 <q-btn rounded style="background: rgba(24, 22, 121, 1); color: white;" label="Connexion" class="full-width" type="submit" />
             </q-card-actions>
+            </q-card-section>
          </q-form>
         <q-separator spaced inset >ou</q-separator>
 
@@ -105,7 +107,7 @@ export default
         this.$emit('clicked', interception)        
       },
       onSubmit() {
-        axios.post('/login',{email: this.email, password:this.password}).then(response => {
+        axios.post('/api/auth/login',{email: this.email, password:this.password}).then(response => {
           if(response.data.token){
             localStorage.setItem('user',JSON.stringify(response.data))
           }

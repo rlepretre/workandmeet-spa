@@ -264,12 +264,12 @@ export default {
     }
   },
   mounted() {
-    return axios.get(`/place/${this.$route.params.id}`)
+    return axios.get(`/api/place/${this.$route.params.id}`)
       .then(response => {
 
         this.espace = response.data
       }),
-    axios.get(`/place/${this.$route.params.id}/comment`)
+    axios.get(`/api/place/${this.$route.params.id}/comment`)
     .then(response => {
       console.log(response.data)
       this.comments = response.data

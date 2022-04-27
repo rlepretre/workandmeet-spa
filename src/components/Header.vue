@@ -5,7 +5,7 @@
             <div class="headerContens">
                 <div class="header">
                     <div class="image">
-                        <q-img src="src/assets/logo.png" />
+                        <q-img src="/src/components/assets/images/logo.png" />
                     </div>
                     <div class="button-content">
                         <div class="toggle">
@@ -200,7 +200,7 @@ export default {
                 this.$store.state.searchInput.diffTime = (timeEnd - timeStart) / 60 / 60 / 1000
                 if (this.$store.state.searchInput.diffTime > 0) {
                     axios
-                    .get('/search', {
+                    .get('/api/places', {
                             params: {
                                 date: this.$store.state.searchInput.date,
                                 startingTime: this.$store.state.searchInput.start,

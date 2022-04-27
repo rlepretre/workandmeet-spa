@@ -22,11 +22,13 @@
            
         >
        
-          <q-card-section class="q-gutter-md row items-start">
-            <q-input rounded outlined v-model="name" hint="Nom"> 
+          <q-card-section class="row q-pt-none" style="background-color: red">
+            <q-input rounded outlined v-model="name" hint="Nom" style="width:350px"
+> 
             </q-input>
               
-            <q-input rounded outlined v-model="firstname" hint="Prénom">
+            <q-input rounded outlined v-model="firstname" hint="Prénom" style="width:350px; background-color: blue"
+>
             </q-input>
           </q-card-section>
           <q-card-section class="q-pt-none">
@@ -74,9 +76,11 @@
               v-model="newsletter"
             />
           </q-card-section>
-          <q-card-actions class="text-primary">
-            <q-btn rounded style="background: rgba(24, 22, 121, 1); color: white;" label="Inscription" class="full-width" type="submit" />
-          </q-card-actions>
+          <q-card-section class="q-pa-md q-gutter-sm">
+            <q-card-actions class="text-primary">
+              <q-btn rounded style="background: rgba(24, 22, 121, 1); color: white;" label="Inscription" class="full-width" type="submit" />
+            </q-card-actions>
+          </q-card-section>
         </q-form>
         <q-separator spaced inset >ou</q-separator>
 
@@ -147,7 +151,7 @@ export default
       },
       onSubmit() {
       console.log({name:this.name, firstname: this.firstname, email: this.email, password: this.password, confirmPassword: this.confirmPassword,newsletter: this.newsletter})
-      axios.post('/register',{name:this.name, firstname: this.firstname, email: this.email, password: this.password, password_confirmation: this.confirmPassword,newsletter: this.newsletter}).then(response => {
+      axios.post('/api/auth/register',{name:this.name, firstname: this.firstname, email: this.email, password: this.password, password_confirmation: this.confirmPassword,newsletter: this.newsletter}).then(response => {
         console.log(response.data)
       })
     },
@@ -155,3 +159,4 @@ export default
    
 }
 </script>
+
