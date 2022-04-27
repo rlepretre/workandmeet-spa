@@ -13,17 +13,17 @@
                         </div>
                         <div class="button-hote">
                             <q-btn rounded style="
-                    background: rgba(24, 22, 121, 1);
-                    color: white;
-                    width: 120px;
-                    height: 40px;
-                  " label="Devenez hôte" />
+                                background: rgba(24, 22, 121, 1);
+                                color: white;
+                                width: 120px;
+                                height: 40px;
+                            " label="Devenez hôte" />
                         </div>
                         <div>
                             <q-btn class="menu-connexion">
                                 <q-icon name="menu" size="1.7rem" />
                                 <q-icon name="account_circle" size="1.7rem" />
-                                <q-menu>
+                                <q-menu v-if="$store.state.user == null">
                                     <q-list dense style="min-width: 100px">
                                         <q-item clickable v-close-popup>
                                             <q-item-section @click="openLogin">Connexion</q-item-section>
@@ -31,9 +31,19 @@
                                         <q-item clickable v-close-popup>
                                             <q-item-section @click="openSignup">Inscription</q-item-section>
                                         </q-item>
+                                    </q-list>
+                                </q-menu>
+                                <q-menu v-if="$store.state.user != null">
+                                    <q-list dense style="min-width: 100px">
+                                        <q-item clickable v-close-popup>
+                                            <q-item-section>Mon Compte</q-item-section>
+                                        </q-item>
+                                        <q-item clickable v-close-popup>
+                                            <q-item-section>Mes réservations</q-item-section>
+                                        </q-item>
                                         <q-separator />
                                         <q-item clickable v-close-popup>
-                                            <q-item-section>Quit</q-item-section>
+                                            <q-item-section @click="logout">Deconnexion</q-item-section>
                                         </q-item>
                                     </q-list>
                                 </q-menu>
@@ -335,6 +345,10 @@ export default {
             this.inscription = value
             console.log(value) // someValue
         },
+        logout(){
+            localStorage.removeItem('user');
+            this.$router.go()
+        }
     },
     data() {
         this.$store.state.everythings.forEach((espace) => {

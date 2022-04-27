@@ -150,11 +150,12 @@ export default
         this.$emit('clickedInsc', inscription)        
       },
       onSubmit() {
-      console.log({name:this.name, firstname: this.firstname, email: this.email, password: this.password, confirmPassword: this.confirmPassword,newsletter: this.newsletter})
-      axios.post('/api/auth/register',{name:this.name, firstname: this.firstname, email: this.email, password: this.password, password_confirmation: this.confirmPassword,newsletter: this.newsletter}).then(response => {
-        console.log(response.data)
-      })
-    },
+        console.log({name:this.name, firstname: this.firstname, email: this.email, password: this.password, confirmPassword: this.confirmPassword,newsletter: this.newsletter})
+        axios.post('/api/auth/register',{name:this.name, firstname: this.firstname, email: this.email, password: this.password, password_confirmation: this.confirmPassword,newsletter: this.newsletter}).then(response => {
+          console.log(response.data)
+        })
+        this.$router.go()
+      },
     },
    
 }

@@ -113,6 +113,7 @@ export default
           }
           return response.data;
         })
+        this.$router.go()
       },
     }
 }
