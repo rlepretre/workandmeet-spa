@@ -5,7 +5,9 @@
             <div class="headerContens">
                 <div class="header">
                     <div class="image">
-                        <q-img src="/src/components/assets/images/logo.png" />
+
+                        <q-img :src="imgUrl"/>
+
                     </div>
                     <div class="button-content">
                         <div class="toggle">
@@ -116,7 +118,9 @@ import {
 import Filter from "./Filter.vue";
 import Login from "./Auth/Login.vue";
 import Signup from "./Auth/Signup.vue";
-import Menu from './Menu.vue';
+
+import imgUrl from '../assets/logo.png'
+
 
 let locality = [];
 
