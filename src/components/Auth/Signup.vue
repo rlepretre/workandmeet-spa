@@ -22,11 +22,13 @@
            
         >
        
-          <q-card-section class="q-gutter-md row items-start">
-            <q-input rounded outlined v-model="name" hint="Nom"> 
+          <q-card-section class="row q-pt-none">
+            <q-input rounded outlined v-model="name" hint="Nom" style="width:350px"
+> 
             </q-input>
               
-            <q-input rounded outlined v-model="firstname" hint="Prénom">
+            <q-input rounded outlined v-model="firstname" hint="Prénom" 
+>
             </q-input>
           </q-card-section>
           <q-card-section class="q-pt-none">
@@ -74,17 +76,28 @@
               v-model="newsletter"
             />
           </q-card-section>
-          <q-card-actions class="text-primary">
-            <q-btn rounded style="background: rgba(24, 22, 121, 1); color: white;" label="Inscription" class="full-width" type="submit" />
-          </q-card-actions>
+          <q-card-section class="q-pa-md q-gutter-sm">
+            <q-card-actions class="text-primary">
+              <q-btn rounded style="background: rgba(24, 22, 121, 1); color: white;" label="Inscription" class="full-width" type="submit" />
+            </q-card-actions>
+          </q-card-section>
         </q-form>
         <q-separator spaced inset >ou</q-separator>
 
-         <q-card-section class="q-pa-md column q-gutter-sm">
+          <q-card-section class="q-pa-md column q-gutter-sm">
           <q-card-actions class="q-pa-md column q-gutter-sm">
-            <q-btn class="full-width" rounded color="white" text-color="black" icon="ion-logo-google" label="Inscrivez-vous avec Google"  />
-            <q-btn class="full-width" rounded color="white" text-color="black" label="Inscrivez-vous avec Facebook" type="submit" icon="facebook" />
-            <q-btn class="full-width" rounded color="white" text-color="black" label="Inscrivez-vous avec Linkedin" type="submit" icon="biLinkedin" />
+            <q-btn class="full-width" rounded color="white" text-color="black" >
+              <i class="fab fa-google fa-2x"></i> 
+              Connectez-vous avec Google
+            </q-btn>
+            <q-btn class="full-width" rounded color="white" text-color="black" type="submit">
+              <i class="fab fa-facebook-square fa-2x"></i>
+              Connectez-vous avec Facebook
+            </q-btn>
+            <q-btn class="full-width" rounded color="white" text-color="black" type="submit">
+              <i class="fab fa-linkedin-in fa-2x"></i> 
+              Connectez-vous avec Linkedin
+            </q-btn>
 
           </q-card-actions>
          </q-card-section>
@@ -137,12 +150,14 @@ export default
         this.$emit('clickedInsc', inscription)        
       },
       onSubmit() {
-      console.log({name:this.name, firstname: this.firstname, email: this.email, password: this.password, confirmPassword: this.confirmPassword,newsletter: this.newsletter})
-      axios.post('/register',{name:this.name, firstname: this.firstname, email: this.email, password: this.password, password_confirmation: this.confirmPassword,newsletter: this.newsletter}).then(response => {
-        console.log(response.data)
-      })
-    },
+        console.log({name:this.name, firstname: this.firstname, email: this.email, password: this.password, confirmPassword: this.confirmPassword,newsletter: this.newsletter})
+        axios.post('/api/auth/register',{name:this.name, firstname: this.firstname, email: this.email, password: this.password, password_confirmation: this.confirmPassword,newsletter: this.newsletter}).then(response => {
+          console.log(response.data)
+        })
+        this.$router.go()
+      },
     },
    
 }
 </script>
+

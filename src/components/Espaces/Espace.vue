@@ -56,11 +56,11 @@
           <div class="item-middle1">
             <q-item-label class="inclus">Inclus</q-item-label>
             <div class="icons">
-              <q-icon class="q-ml" v-if="n.wifi == 1" name="wifi" />
-              <q-icon class="q-ml" v-if="n.coffee == 1" name="coffee" />
-              <q-icon class="q-ml" v-if="n.wc == 1" name="wc" />
-              <q-icon class="q-ml" v-if="n.power == 1" name="power" />
-              <q-icon class="q-ml" v-if="n.parking == 1" name="parking" />
+              <q-icon  v-if="n.wifi == 1" name="wifi" />
+              <q-icon  v-if="n.coffee == 1" name="coffee" />
+              <q-icon  v-if="n.wc == 1" name="wc" />
+              <q-icon  v-if="n.power == 1" name="power"/>
+              <q-icon class="q-ml" v-if="n.parking == 1" name="parking"/>
             </div>
           </div>
           <q-separator spaced inset />
@@ -82,13 +82,18 @@
           <q-separator spaced inset />
           <div class="item-down">
             <q-icon name="star" />
-            <q-item-label caption>(20 Commentaires)</q-item-label>
+            <q-item-label caption>({{n.review_count}} commentaires)</q-item-label>
           </div>
         </q-item-section>
 
         <q-item-section side top>
-          <q-btn flat round icon="favorite" />
-          <router-link to="/post">
+          <q-btn flat round icon="favorite" :class="{ active: activeClasses }" @click="addFav"/>
+          <router-link :to="{
+        name: 'Post',
+        params: {
+          id: n.id
+        }
+      }">
             <q-btn
               class="reserver"
               rounded
@@ -119,6 +124,18 @@ export default {
       current: ref(3),
     };
   },
+  data: function () {
+    return{
+      activeClasses: false,
+
+    }
+  },
+  methods: {
+    addFav() {
+      this.activeClasses = !this.activeClasses;
+      
+    }
+  }
 };
 </script>
 <style  scoped>
@@ -170,6 +187,7 @@ export default {
 .q-ml {
   margin-left: 20px;
 }
+
 .active {
   color: red !important;
 }

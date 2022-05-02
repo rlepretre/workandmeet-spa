@@ -1,44 +1,19 @@
 <template>
 <div>
-    <q-bar class="bg-white" style="height: 160px">
+    <q-bar class="bg-white" style="height: 120px">
         <div class="container">
             <div class="headerContens">
                 <div class="header">
                     <div class="image">
+
                         <q-img :src="imgUrl"/>
+
                     </div>
                     <div class="button-content">
                         <div class="toggle">
                             <q-btn style="background: rgba(24, 22, 121, 1); color: white" round icon="search" />
                         </div>
-                        <div class="button-hote">
-                            <q-btn rounded style="
-                    background: rgba(24, 22, 121, 1);
-                    color: white;
-                    width: 120px;
-                    height: 40px;
-                  " label="Devenez hôte" />
-                        </div>
-                        <div>
-                            <q-btn class="menu-connexion">
-                                <q-icon name="menu" size="1.7rem" />
-                                <q-icon name="account_circle" size="1.7rem" />
-                                <q-menu>
-                                    <q-list dense style="min-width: 100px">
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section @click="openLogin">Connexion</q-item-section>
-                                        </q-item>
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section @click="openSignup">Inscription</q-item-section>
-                                        </q-item>
-                                        <q-separator />
-                                        <q-item clickable v-close-popup>
-                                            <q-item-section>Quit</q-item-section>
-                                        </q-item>
-                                    </q-list>
-                                </q-menu>
-                            </q-btn>
-                        </div>
+                        <Menu/>
                     </div>
                 </div>
                 <div class="toggle">
@@ -125,8 +100,7 @@
             </div>
         </div>
     </q-bar>
-    <Login :interception="interception" @clicked="onClickChild" />
-    <Signup :inscription="inscription" @clickedInsc="onClickSignup" />
+  
 </div>
 <div>
 
@@ -144,7 +118,9 @@ import {
 import Filter from "./Filter.vue";
 import Login from "./Auth/Login.vue";
 import Signup from "./Auth/Signup.vue";
+
 import imgUrl from '../assets/logo.png'
+
 
 let locality = [];
 
@@ -201,7 +177,7 @@ export default {
                 this.$store.state.searchInput.diffTime = (timeEnd - timeStart) / 60 / 60 / 1000
                 if (this.$store.state.searchInput.diffTime > 0) {
                     axios
-                    .get('/search', {
+                    .get('/api/places', {
                             params: {
                                 date: this.$store.state.searchInput.date,
                                 startingTime: this.$store.state.searchInput.start,
@@ -336,6 +312,10 @@ export default {
             this.inscription = value
             console.log(value) // someValue
         },
+        logout(){
+            localStorage.removeItem('user');
+            this.$router.go()
+        }
     },
     data() {
         this.$store.state.everythings.forEach((espace) => {
@@ -346,10 +326,11 @@ export default {
 
     },
     components: {
-        Filter,
-        Login,
-        Signup
-    },
+    Filter,
+    Login,
+    Signup,
+    Menu
+},
 };
 </script>
 
@@ -414,7 +395,7 @@ export default {
 }
 
 .search-content {
-    height: 70%;
+    height: 50%;
 }
 
 .button-search {

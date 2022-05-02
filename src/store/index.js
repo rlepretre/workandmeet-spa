@@ -134,7 +134,7 @@ const store = createStore({
   actions: {
     GET_EVERYTHING ({commit}) {
        axios
-      .get('/api')
+      .get('/api/places')
       .then(response => {
         commit('SET_EVERYTHING', response.data)
       })
