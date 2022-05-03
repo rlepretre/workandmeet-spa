@@ -2,7 +2,7 @@
 <div class="button-content">
                     
     <div class="button-hote">
-        <q-btn rounded style="
+        <q-btn rounded  style="
             background: rgba(24, 22, 121, 1);
             color: white;
             "
@@ -11,8 +11,8 @@
     </div>
     <div>
         <q-btn class="menu-connexion">
-            <q-icon name="menu"  />
-            <q-icon name="account_circle" />
+            <q-icon dense name="menu"  />
+            <q-icon dense name="account_circle" />
             <q-menu v-if="$store.state.user == null">
                 <q-list dense style="min-width: 100px">
                     <q-item clickable v-close-popup>
@@ -26,7 +26,12 @@
             <q-menu v-if="$store.state.user != null">
                 <q-list dense style="min-width: 100px">
                     <q-item clickable v-close-popup>
-                        <q-item-section>Mon Compte</q-item-section>
+                        <router-link
+                            :to="{
+                            name: 'Info'}"
+                        >
+                            <q-item-section>Mon Compte</q-item-section>
+                        </router-link>
                     </q-item>
                     <q-item clickable v-close-popup>
                         <q-item-section>Mes réservations</q-item-section>

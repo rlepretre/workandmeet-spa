@@ -1,44 +1,45 @@
 <template>
     <div >
-        <div class="title" >
-            <h2>Information personnelle</h2>
+        <div class="q-pa-md " >
+            <h2 class="title justify-center">Information personnelle</h2>
         </div>
         <div class="q-pa-md row justify-center">
-            <div style="width: 100%; max-width: 400px">
+            <div style="width: 100%; max-width: 700px">
                 <q-form
                 @submit="onSubmit"
                 @reset="onReset"
                 class="q-gutter-md"
                 >
-                    <div class=" row items-start">
+                    <div class="row">
                         <q-input
-                            style="width:200px"
                             outlined
                             rounded
                             v-model="name"
                             label="Nom *"
                             lazy-rules
                             :rules="[ val => val && val.length > 0 || 'Please type something']"
+                            style="width: 360px"
                         />
 
                         <q-input
                             outlined
+                            style="width: 360px"
                             rounded
-                            style="width:200px"
                             v-model="firstname"
                             label="Prénom *"
                             lazy-rules
                             :rules="[ val => val && val.length > 0 || 'Please type something']"
 
                         />
-                    </div>   
-                    <q-input rounded outlined v-model="email" :type="email" label="Email *"
- >
-                        <template v-slot:append>
-                        <q-icon name="mail" />
-                        </template>
-                    </q-input>
-                    <q-input rounded outlined  v-model="password" :type="isPwd ? 'password' : 'text'" label="Mot de Passe *">
+                    </div>
+                   
+                        <q-input rounded outlined v-model="email" :type="email" label="Email *" style="margin-bottom: 10px">
+                            <template v-slot:append>
+                            <q-icon name="mail" />
+                            </template>
+                        </q-input>
+                    
+                    <q-input rounded outlined  v-model="password" :type="isPwd ? 'password' : 'text'" label="Mot de Passe *" style="margin-bottom: 10px">
                         <template v-slot:append>
                             <q-icon
                                 :name="isPwd ? 'visibility_off' : 'visibility'"
@@ -47,7 +48,8 @@
                             />
                         </template>
                     </q-input>
-                    <q-input rounded outlined bottom-slots v-model="password" :type="isPwd ? 'password' : 'text'" label="Confirme Mot de Passe *">
+                    
+                    <q-input rounded outlined bottom-slots v-model="password" :type="isPwd ? 'password' : 'text'" label="Confirme Mot de Passe *" >
                         <template v-slot:append>
                         <q-icon
                             :name="isPwd ? 'visibility_off' : 'visibility'"
@@ -56,7 +58,7 @@
                         />
                         </template>
                     </q-input>
-                    <div>
+                    
                         <q-file color="teal" rounded outlined v-model="model" label="Ajouter une photo de profil">
                             <template v-slot:prepend>
                             <q-icon name="cloud_upload" />
@@ -69,11 +71,10 @@
                             color="green"
                             v-model="newsletter"
                         />
-                    </div>
                     
                     <div>
-                        <q-btn label="Submit" type="submit" color="primary"/>
-                        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+                        <q-btn rounded label="Submit" type="submit" style="background: rgba(24, 22, 121, 1); color: white;"/>
+                        <q-btn rounded label="Reset" type="cancel" style="background: rgba(24, 22, 121, 1); color: white;" flat class="q-ml-sm" />
                     </div>
                 </q-form>
             </div>
@@ -93,6 +94,7 @@ export default{
 </script>
 <style scoped>
 .title{
-    border: 1px solid;
+    border-bottom: 1px solid;
+    
 }
 </style>
