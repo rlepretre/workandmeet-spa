@@ -119,7 +119,7 @@ import {
 import Filter from "./Filter.vue";
 import Login from "./Auth/Login.vue";
 import Signup from "./Auth/Signup.vue";
-
+import Menu from './Menu.vue';
 import imgUrl from '../assets/logo.png'
 
 
