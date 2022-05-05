@@ -1,6 +1,7 @@
 <template>
 <div>
-    <q-bar class="bg-white" style="height: 120px">
+    <q-header elevated class="bg-white" style="height: 190px">
+    <q-bar class="bg-white" >
         <div class="container">
             <div class="headerContens">
                 <div class="header">
@@ -24,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="q-pa-md search" :class="{show: this.$store.state.activeSearch}">
+                <div class="search" :class="{show: this.$store.state.activeSearch}">
                     <q-form class="q-gutter-md search-content">
                         <div class="product-search">
                             <div class="search-element">
@@ -100,7 +101,7 @@
             </div>
         </div>
     </q-bar>
-  
+    </q-header>
 </div>
 <div>
 
@@ -118,7 +119,7 @@ import {
 import Filter from "./Filter.vue";
 import Login from "./Auth/Login.vue";
 import Signup from "./Auth/Signup.vue";
-
+import Menu from './Menu.vue';
 import imgUrl from '../assets/logo.png'
 
 

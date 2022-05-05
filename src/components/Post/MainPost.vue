@@ -5,6 +5,9 @@
     <q-page-container>
     <Booking/>
     </q-page-container>
+    <q-page-container>
+    <Information/>
+    </q-page-container>
   </q-layout>
   <!-- <template v-else-if="isCheckout">
     <Checkout/>
@@ -15,14 +18,16 @@
 <script>
 import Header from './Header.vue';
 import Booking from './Booking.vue';
+import Information from '../User/Information.vue';
 // import Checkout from './StripeElementPayment.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Booking
-  }
+    Booking,
+    Information
+}
 }
 </script>
 

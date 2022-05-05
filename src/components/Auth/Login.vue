@@ -109,11 +109,14 @@ export default
       onSubmit() {
         axios.post('/api/auth/login',{email: this.email, password:this.password}).then(response => {
           if(response.data.token){
+            console.log(response.data)
             localStorage.setItem('user',JSON.stringify(response.data))
           }
+          this.$router.go()
           return response.data;
         })
-        this.$router.go()
+        console.log(this.$store.state.user)
+        
       },
     }
 }
