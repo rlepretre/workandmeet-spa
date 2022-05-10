@@ -6,8 +6,7 @@
             <div class="headerContens">
                 <div class="header">
                     <div class="image">
-
-                        <q-img :src="imgUrl"/>
+                        <q-img src="../assets/images/logo.png" alt="logo" />
 
                     </div>
                     <div class="button-content">
@@ -27,9 +26,9 @@
                 </div>
                 <div class="search" :class="{show: this.$store.state.activeSearch}">
                     <q-form class="q-gutter-md search-content">
-                        <div class="product-search">
+                        <div class="product-search" >
                             <div class="search-element">
-                                <input style="width: 140px; margin-bottom: 20px; margin-left: 20px" type="text" v-model="$store.state.searchInput.input" placeholder="Où">
+                                <input style="width: 140px;" type="text" v-model="$store.state.searchInput.input" placeholder="Où">
                                 <!-- <q-select
                     borderless
                     v-model="$store.state.searchInput.input"
@@ -43,20 +42,20 @@
                     @click.stop
                   /> -->
                             </div>
-                            <q-separator spaced vertical />
+                            <q-separator spaced inset color="dark"/>
                             <div class="search-element">
-                                <q-input label="De quelle heure" borderless style="width: 140px; margin-bottom: 15px" type="time" v-model="$store.state.searchInput.start">
+                                <q-input label="De quelle heure" borderless style="width: 140px;" type="time" v-model="$store.state.searchInput.start">
                                 </q-input>
                             </div>
-                            <q-separator spaced vertical />
+                            <q-separator spaced inset color="dark" />
 
                             <div class="search-element">
-                                <q-input borderless label="A quelle heure" style="width: 140px; margin-bottom: 15px" type="time" v-model="$store.state.searchInput.end">
+                                <q-input borderless label="A quelle heure" style="width: 140px;" type="time" v-model="$store.state.searchInput.end">
                                 </q-input>
                             </div>
-                            <q-separator spaced vertical />
+                            <q-separator spaced inset color="dark" />
                             <div class="button-element">
-                                <input style="width: 140px; margin-bottom: 20px; margin-left: 20px" type="date" v-model="$store.state.searchInput.date">
+                                <input style="width: 140px;" type="date" v-model="$store.state.searchInput.date">
                                 <!-- <q-input
                     label="Quand"
                     v-model="$store.state.searchInput.date"
@@ -386,7 +385,8 @@ export default {
     border-radius: 60px;
     cursor: pointer;
     height: 49px;
-    border: 0.5px solid;
+    border-radius: 60px;
+    border: 1px solid black;
     /* flex-flow: column; */
 }
 
@@ -416,9 +416,10 @@ export default {
 .search-element {
     display: flex;
     flex-grow: 2;
-    margin: 10px 0 0 6px;
+    margin: 20px;
     flex-direction: column;
 }
+
 
 .menu-connexion {
     height: 40px;

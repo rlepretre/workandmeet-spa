@@ -11,8 +11,8 @@
     </div>
     <div>
         <q-btn class="menu-connexion">
-            <q-icon dense name="menu"  />
-            <q-icon dense name="account_circle" />
+            <q-icon name="menu" color="dark"/>
+            <q-icon name="account_circle" color="dark"/>
             <q-menu v-if="$store.state.user == null">
                 <q-list dense style="min-width: 100px">
                     <q-item clickable v-close-popup>
@@ -34,7 +34,12 @@
                         </router-link>
                     </q-item>
                     <q-item clickable v-close-popup>
+                         <router-link
+                            :to="{
+                            name: 'Reservations'}"
+                        >
                         <q-item-section>Mes réservations</q-item-section>
+                         </router-link>
                     </q-item>
                     <q-separator />
                     <q-item clickable v-close-popup>

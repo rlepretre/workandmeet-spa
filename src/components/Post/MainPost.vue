@@ -5,9 +5,7 @@
     <q-page-container>
     <Booking/>
     </q-page-container>
-    <q-page-container>
-    <Information/>
-    </q-page-container>
+  
   </q-layout>
   <!-- <template v-else-if="isCheckout">
     <Checkout/>

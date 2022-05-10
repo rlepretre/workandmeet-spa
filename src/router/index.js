@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Header from "../components/Main.vue"
+
 const routes = [
   {
     path: '/',
@@ -21,6 +22,15 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../components/User/Information.vue')
+  },
+  ,
+  {
+    path: '/reservations',
+    name: 'Reservations',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/Customers/Reservation.vue')
   },
 ]
 const router = createRouter({

@@ -1,4 +1,8 @@
 <template>
+<q-layout view="lHh Lpr lFf">
+    <Header/>
+    <div class="py-3"></div> <!-- ./spacer -->
+    <q-page-container>
     <div >
         <div class="q-pa-md " >
             <h2 class="title justify-center">Information personnelle</h2>
@@ -80,15 +84,21 @@
             </div>
         </div>
   </div>
+     </q-page-container>
+  </q-layout>
 </template>
 <script >
 import { ref } from "vue"
+import Header from "../Post/Header.vue"
 export default{
     setup(){
         return {
             newsletter: ref(1),
             customModel: ref('no'),
         }
+    },
+    components:{
+        Header,
     }
 }
 </script>

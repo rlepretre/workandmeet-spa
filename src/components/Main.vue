@@ -6,15 +6,17 @@ import EspaceList from "./Espaces/EspaceList.vue";
 </script>
 
 <template>
-    <q-layout view="lHh Lpr lFf" >
-      <q-page-container>
-        <div class="contents">
+  <div class="q-pa-md">
+
+    <q-layout view="lHh lpr lFf"  >
+     
           <Header />
-          <div class="empty"></div>
+          <q-page-container>
           <EspaceList />
-        </div>
-      </q-page-container>
+          </q-page-container>
+      
     </q-layout>
+  </div>
 </template>
 <style>
 #app {

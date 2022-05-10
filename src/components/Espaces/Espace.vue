@@ -52,7 +52,7 @@
               >
             </div>
           </div>
-          <q-separator spaced inset />
+          <q-separator spaced inset color="dark" />
           <div class="item-middle1">
             <q-item-label class="inclus">Inclus</q-item-label>
             <div class="icons">
@@ -63,7 +63,7 @@
               <q-icon class="q-ml" v-if="n.parking == 1" name="parking"/>
             </div>
           </div>
-          <q-separator spaced inset />
+          <q-separator spaced inset color="dark" />
           <div class="item-middle2">
             <q-item-label class="inclus">Tarifs</q-item-label>
             <div class="tarifs">
@@ -79,7 +79,7 @@
               >
             </div>
           </div>
-          <q-separator spaced inset />
+          <q-separator spaced inset color="dark" />
           <div class="item-down">
             <q-icon name="star" />
             <q-item-label caption>({{n.review_count}} commentaires)</q-item-label>
@@ -107,7 +107,7 @@
           >
         </q-item-section>
       </q-item>
-      <q-separator spaced inset />
+      <q-separator spaced inset color="dark" />
     </q-list>
   </div>
 </template>
