@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createStore } from 'vuex'
 
+const api = '/api';
 // Create a new store instance.
 const store = createStore({
   state : {

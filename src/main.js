@@ -12,7 +12,9 @@ import router from './router'
 import 'quasar/src/css/index.sass'
 // Import all local custom scss
 import './assets/scss/main.scss'
+import Axios from 'axios'
 
+Axios.defaults.baseURL = 'https://test.workandmeet.be/api';
 
 const app = createApp(App)
 app.use(router)

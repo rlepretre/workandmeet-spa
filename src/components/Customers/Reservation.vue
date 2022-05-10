@@ -50,6 +50,7 @@
                 <q-btn rounded style="
                 background: rgba(24, 22, 121, 1);
                 color: white;
+                width: 200px
               " >Réserver à nouveau</q-btn>
             </q-card-actions>
         </q-card-section>
@@ -83,6 +84,8 @@
                 <q-btn rounded style="
                 background: rgba(24, 22, 121, 1);
                 color: white;
+                width: 200px
+
               " >Réserver à nouveau</q-btn>
             </q-card-actions>
         </q-card-section>
@@ -116,6 +119,7 @@
                 <q-btn rounded style="
                 background: rgba(24, 22, 121, 1);
                 color: white;
+                width: 200px
               " >Réserver à nouveau</q-btn>
             </q-card-actions>
         </q-card-section>
@@ -149,6 +153,7 @@
                 <q-btn rounded style="
                 background: rgba(24, 22, 121, 1);
                 color: white;
+                width: 200px
               " >Réserver à nouveau</q-btn>
             </q-card-actions>
         </q-card-section>

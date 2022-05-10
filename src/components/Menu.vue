@@ -23,7 +23,7 @@
                     </q-item>
                 </q-list>
             </q-menu>
-            <q-menu v-if="$store.state.user != null">
+            <q-menu v-if="$store.state.user != null ">
                 <q-list dense style="min-width: 100px">
                     <q-item clickable v-close-popup>
                         <router-link
@@ -39,6 +39,22 @@
                             name: 'Reservations'}"
                         >
                         <q-item-section>Mes réservations</q-item-section>
+                         </router-link>
+                    </q-item>
+                    <q-item clickable v-close-popup>
+                         <router-link
+                            :to="{
+                            name: 'Bookings'}"
+                        >
+                        <q-item-section>Mes réservations (hôte)</q-item-section>
+                         </router-link>
+                    </q-item>
+                    <q-item clickable v-close-popup>
+                         <router-link
+                            :to="{
+                            name: 'Espaces'}"
+                        >
+                        <q-item-section>Mes espaces (hôte)</q-item-section>
                          </router-link>
                     </q-item>
                     <q-separator />
