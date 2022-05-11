@@ -82,18 +82,13 @@
           <q-separator spaced inset color="dark" />
           <div class="item-down">
             <q-icon name="star" />
+            <q-item-label caption>{{n.rating}}</q-item-label>
             <q-item-label caption>({{n.review_count}} commentaires)</q-item-label>
           </div>
         </q-item-section>
 
         <q-item-section side top>
           <q-btn flat round icon="favorite" :class="{ active: activeClasses }" @click="addFav"/>
-          <router-link :to="{
-        name: 'Post',
-        params: {
-          id: n.id
-        }
-      }">
             <q-btn
               class="reserver"
               rounded
@@ -102,9 +97,9 @@
                 color: white;
                 margin-top: 200px;
               "
+              @click="goToBooking(n.id)"
               >Réserver</q-btn
-            ></router-link
-          >
+            >
         </q-item-section>
       </q-item>
       <q-separator spaced inset color="dark" />
@@ -134,6 +129,9 @@ export default {
     addFav() {
       this.activeClasses = !this.activeClasses;
       
+    },
+    goToBooking(id) {
+      this.$router.push(`/post/${id}`)
     }
   }
 };
@@ -165,6 +163,7 @@ export default {
 .item-down {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .icons {
   display: flex;

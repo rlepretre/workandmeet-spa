@@ -1,5 +1,5 @@
 <template>
-  <div class="espaces">
+  <div class="espaceList" v-bind="espaceData">
     <div class="espace">
       <div v-for="n in espaceData" :key="n.id">
         <Espace :n="n" />
@@ -13,26 +13,33 @@
         active-color="primary"
       />
     </div>
-    <Map class="map" v-model="espaces" :espaces="espaces" />
+    <div class="Map" >
+      <Map class="map" v-bind="espaceData" :espaceData="espaces" />
+    </div>
   </div>
 </template>
 
 <style>
-.espaces {
-  margin: 20px auto;
+.espaceList {
+  margin: 0px auto;
   display: flex;
   justify-content: space-between;
   /* grid-template-columns: repeat(7, 1fr); */
 }
 .espace {
   grid-column: span 4;
-  margin-top: 20px;
+  margin-top: 10px;
+  overflow-y: auto;
+  height: 100vh;
 }
 .map {
   grid-column: span 3;
   width: 600px;
   height: 800px;
+ 
 }
+
+
 </style>
 <script>
 import Espace from "./Espace.vue";
@@ -45,9 +52,10 @@ export default {
     n: {},
   },
   data() {
+
     return {
       espaceData: {},
-      filterList: ["wifi", "coffee"],
+      filterList: ["wifi", "coffee"]
     };
   },
   name: "EspaceList",

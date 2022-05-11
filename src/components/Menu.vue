@@ -26,36 +26,17 @@
             <q-menu v-if="$store.state.user != null ">
                 <q-list dense style="min-width: 100px">
                     <q-item clickable v-close-popup>
-                        <router-link
-                            :to="{
-                            name: 'Info'}"
-                        >
-                            <q-item-section>Mon Compte</q-item-section>
-                        </router-link>
+                        <q-item-section @click="goToAccount">Mon Compte</q-item-section>
+
                     </q-item>
                     <q-item clickable v-close-popup>
-                         <router-link
-                            :to="{
-                            name: 'Reservations'}"
-                        >
-                        <q-item-section>Mes réservations</q-item-section>
-                         </router-link>
+                        <q-item-section @click="goToMyReservations">Mes réservations</q-item-section>
                     </q-item>
                     <q-item clickable v-close-popup>
-                         <router-link
-                            :to="{
-                            name: 'Bookings'}"
-                        >
-                        <q-item-section>Mes réservations (hôte)</q-item-section>
-                         </router-link>
+                        <q-item-section @click="goToReservations">Mes réservations (hôte)</q-item-section>
                     </q-item>
                     <q-item clickable v-close-popup>
-                         <router-link
-                            :to="{
-                            name: 'Espaces'}"
-                        >
-                        <q-item-section>Mes espaces (hôte)</q-item-section>
-                         </router-link>
+                        <q-item-section @click="goToMySpaces">Mes espaces (hôte)</q-item-section>
                     </q-item>
                     <q-separator />
                     <q-item clickable v-close-popup>
@@ -83,6 +64,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.button-hote{
+    margin-right: 8px;
 }
 </style>
 <script>
@@ -122,6 +106,20 @@ export default {
         logout(){
             localStorage.removeItem('user');
             this.$router.go()
+        },
+        goToAccount(){
+            this.$router.push(`/info`)
+
+        },
+        goToMyReservations(){
+            this.$router.push(`/reservations`)
+
+        },
+        goToReservations(){
+            this.$router.push(`/bookings`)
+        },
+        goToMySpaces(){
+            this.$router.push(`/espaces`)
         }
     }
 }

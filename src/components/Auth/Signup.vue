@@ -17,18 +17,15 @@
 
         <q-form   
             @submit="onSubmit"
-            class="q-gutter-md"
+            
             style="margin-top: 40px"
            
         >
        
-          <q-card-section class="row q-pt-none">
-            <q-input rounded outlined v-model="name" hint="Nom" style="width:350px"
-> 
+          <q-card-section class="q-pa-md row ">
+            <q-input rounded outlined v-model="name" hint="Nom" style="width:355px"> 
             </q-input>
-              
-            <q-input rounded outlined v-model="firstname" hint="Prénom" 
->
+            <q-input rounded outlined v-model="firstname" style="width:355px" hint="Prénom">
             </q-input>
           </q-card-section>
           <q-card-section class="q-pt-none">
