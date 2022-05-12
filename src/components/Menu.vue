@@ -41,6 +41,11 @@
                     <q-item clickable v-close-popup>
                         <q-item-section @click="goToMySpaces">Mes espaces (hôte)</q-item-section>
                     </q-item>
+                     <q-item clickable v-close-popup>
+                        <router-link :to="{name: 'InviteUser'}">
+                            <q-item-section>Inviter mes contacts</q-item-section>
+                        </router-link>
+                    </q-item>
                     <q-separator />
                     <q-item clickable v-close-popup>
                         <q-item-section @click="logout">Deconnexion</q-item-section>
