@@ -27,3 +27,7 @@ span#error {
     margin-left: 5px;
 }
 </style>
+
+<style scoped>
+
+</style>>
