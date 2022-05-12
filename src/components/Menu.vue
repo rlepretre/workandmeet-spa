@@ -2,12 +2,14 @@
 <div class="button-content">
                     
     <div class="button-hote">
-        <q-btn rounded  style="
-            background: rgba(24, 22, 121, 1);
-            color: white;
-            "
-            label="Devenez hôte"
-        />
+        <router-link :to="{name: 'EspaceHote'}">
+            <q-btn rounded style="
+                background: rgba(24, 22, 121, 1);
+                color: white;
+                "
+                label="Devenez hôte"
+            />
+        </router-link>
     </div>
     <div>
         <q-btn class="menu-connexion">
