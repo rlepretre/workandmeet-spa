@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Header from "../components/Main.vue"
+import InviteUser from "../components/Invite/InviteUser.vue"
+import EspaceHote from "../components/EspacesHote/EspaceHote.vue"
+import EspaceStepOne from "../components/EspacesHote/EspaceStepOne.vue"
+import EspaceStepTwo from "../components/EspacesHote/EspaceStepTwo.vue"
 
 const routes = [
   {
@@ -46,6 +50,27 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../components/Hote/MesEspaces.vue')
+  },
+
+  {
+    path: '/invite',
+    name: 'InviteUser',
+    component: InviteUser
+  },
+  {
+    path: '/espace-hote',
+    name: 'EspaceHote',
+    component: EspaceHote
+  },
+  {
+    path: '/espace-step-one',
+    name: 'EspaceStepOne',
+    component: EspaceStepOne
+  },
+  {
+    path: '/espace-step-two',
+    name: 'EspaceStepTwo',
+    component: EspaceStepTwo
   },
 ]
 const router = createRouter({

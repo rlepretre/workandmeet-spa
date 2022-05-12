@@ -3,7 +3,7 @@
                     
     <div class="button-hote">
         <router-link :to="{name: 'EspaceHote'}">
-            <q-btn rounded style="
+            <q-btn rounded  style="
                 background: rgba(24, 22, 121, 1);
                 color: white;
                 "
@@ -11,6 +11,7 @@
             />
         </router-link>
     </div>
+
     <div>
         <q-btn class="menu-connexion">
             <q-icon name="menu" color="dark"/>
